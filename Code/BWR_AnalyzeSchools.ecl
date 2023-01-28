@@ -5,7 +5,7 @@ Schools := $.File_AllSchools.File;
 //CrossTab by State
 
 //Use this code to profile the All Schools dataset:
-// profileResults := STD.DataPatterns.Profile(Schools):PERSIST('~BMF::UGA::Persist::SchoolsProfile');
+// profileResults := STD.DataPatterns.Profile(Schools):PERSIST('~UGA::Persist::SchoolsProfile');
 // OUTPUT(profileResults, ALL, NAMED('profileResults'));
 
 //Build Table by State
@@ -27,14 +27,14 @@ ByState := TABLE(CleanSchSub,{State,
                               PubCnt     := COUNT(GROUP,Public=TRUE), 
                               PrvCnt     := COUNT(GROUP,Public=FALSE),
                               DECIMAL5_2 PrPubRat   := 0,
-                              AveSTRatio := ROUND(AVE(GROUP,STRatio),2)},
-                              State);
+                              AveSTRatio := ROUND(AVE(GROUP,STRatio),2)}
+                 ,State);
 
 Clean_ByState := PROJECT(ByState,TRANSFORM(RECORDOF(ByState),
                                            SELF.PrPubRat := (LEFT.PrvCnt/LEFT.PubCnt) * 100,
                                            SELF := LEFT));
 // SORT(Clean_ByState,AveStRatio);
-OUTPUT(Clean_ByState,,'~BMF::Hackathon::EducationSummary',OVERWRITE);
+OUTPUT(Clean_ByState,,'~UGA::Main::Hacks::EducationSummary',OVERWRITE);
 
 
 

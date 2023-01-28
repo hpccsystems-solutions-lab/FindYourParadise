@@ -1,4 +1,5 @@
 ﻿EXPORT File_AllSchools := MODULE
+//Best layout from BWR_BuildSchools
 EXPORT Layout := RECORD
     UNSIGNED8 RecID;
     BOOLEAN   Public;
@@ -38,6 +39,6 @@ EXPORT Layout := RECORD
     STRING13  shelter_id;
 END;
 
-EXPORT File := DATASET('~BMF::OUT::AllUSSchools',Layout,THOR);
+EXPORT File := DATASET('~UGA::Main::OUT::AllUSSchools',Layout,THOR);
 
 END;

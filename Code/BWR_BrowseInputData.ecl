@@ -17,7 +17,7 @@ OUTPUT(COUNT($.File_Mortality.File),NAMED('Cnt_Mortality'));
 OUTPUT($.File_Weather.File,NAMED('Storms'));
 OUTPUT(COUNT($.File_Weather.File),NAMED('Cnt_Storms'));
 
-OUTPUT($.File_StateFIPS.File(StateCode > 80),NAMED('FIPSLookup'));
+OUTPUT($.File_StateFIPS.File,NAMED('FIPSLookup'));
 OUTPUT(COUNT($.File_StateFIPS.File),NAMED('Cnt_FIPS'));
 
 

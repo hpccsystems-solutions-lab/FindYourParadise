@@ -13,7 +13,7 @@
   real4 propcomprat;    //Sum of above ratios Property Composite Ratio
 END;
 
-Crime_DS := DATASET('~BMF::Hackathon::CrimeRates',CrimeRec,FLAT);
+Crime_DS := DATASET('~UGA::Main::Hacks::CrimeRates',CrimeRec,FLAT);
 Crime_DS;
 
 //Build Scores (higher score, better rating)
@@ -31,4 +31,4 @@ TempTbl := TABLE(Crime_DS,RankTbl);
 AddViolentScore := ITERATE(SORT(TempTbl,-violentcomprat),TRANSFORM(RankTbl,SELF.ViolentScore := IF(LEFT.violentcomprat=RIGHT.violentcomprat,LEFT.ViolentScore,LEFT.ViolentScore+1),SELF := RIGHT));
 AddPropScore    := ITERATE(SORT(AddViolentScore,-propcomprat),TRANSFORM(RankTbl,SELF.PropCrimeScore := IF(LEFT.propcomprat=RIGHT.propcomprat,LEFT.PropCrimeScore,LEFT.PropCrimeScore+1),SELF := RIGHT));
 
-OUTPUT(AddPropScore,,'~BMF::hackathon::CrimeScores',NAMED('TopCrime'),OVERWRITE);
+OUTPUT(AddPropScore,,'~UGA::Main::Hacks::CrimeScores',NAMED('TopCrime'),OVERWRITE);

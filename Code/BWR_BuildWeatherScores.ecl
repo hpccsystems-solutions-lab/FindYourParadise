@@ -5,7 +5,7 @@
   unsigned2 fatsum;
  END;
  
- WeatherEventDS := DATASET('~bmf::hackathon::weatherstats',WeatherEventRec,FLAT);
+ WeatherEventDS := DATASET('~UGA::Main::Hacks::WeatherStats',WeatherEventRec,FLAT);
 
 //BuildScore (higher score, better rating)
 RankTbl := RECORD
@@ -25,4 +25,4 @@ AddEvtScore := ITERATE(SORT(TempTbl,-EvtSum),TRANSFORM(RankTbl,SELF.EvtScore := 
 AddInjScore := ITERATE(SORT(AddEvtScore,-InjSum),TRANSFORM(RankTbl,SELF.InjScore := IF(LEFT.InjSum=RIGHT.InjSum,LEFT.InjScore,LEFT.InjScore+1),SELF := RIGHT));
 AddFatScore := ITERATE(SORT(AddInjScore,-FatSum),TRANSFORM(RankTbl,SELF.FatScore := IF(LEFT.FatSum=RIGHT.FatSum,LEFT.FatScore,LEFT.FatScore+1),SELF := RIGHT));
 
-OUTPUT(AddFatScore,,'~bmf::hackathon::weatherscores',NAMED('TopFat'),OVERWRITE);
+OUTPUT(AddFatScore,,'~UGA::Main::Hacks::WeatherScores',NAMED('TopFatalities'),OVERWRITE);

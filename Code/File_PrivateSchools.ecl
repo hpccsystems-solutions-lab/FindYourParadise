@@ -39,6 +39,6 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-EXPORT File := DATASET('~bmf::kaggle::private_schoolsus',layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~uga::main::private_schoolsUS',layout,CSV(HEADING(1)));
 
 END;

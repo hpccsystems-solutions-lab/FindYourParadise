@@ -22,7 +22,7 @@
   STRING577 caveats;
  END;
 
-EXPORT File := DATASET('~bmf::uga::estimated_crimes_1979_2020',Layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~uga::main::estimated_crimes_1979_2020',Layout,CSV(HEADING(1)));
 
 
 /* This optional data set contains statistics, in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. Also given is the percent of the population living in urban areas.
@@ -40,6 +40,6 @@ EXPORT File := DATASET('~bmf::uga::estimated_crimes_1979_2020',Layout,CSV(HEADIN
     STRING UrbanPop;
     STRING Rape;
  END;
- EXPORT File2 := DATASET('~bmf::kaggle::us_violent_crime_summary_by_state',layout2,CSV(HEADING(1)));
+ EXPORT File2 := DATASET('~uga::main::us_violent_crime_summary_by_state',layout2,CSV(HEADING(1)));
 
 END;

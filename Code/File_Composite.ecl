@@ -9,7 +9,7 @@ EXPORT File_Composite := MODULE
   UNSIGNED1 PropCrimeScore;
  END;
  
- EXPORT CrimeScoreDS := DATASET('~BMF::hackathon::CrimeScores',CrimeScoreRec,FLAT);
+ EXPORT CrimeScoreDS := DATASET('~UGA::Main::Hacks::CrimeScores',CrimeScoreRec,FLAT);
 
 //Education
  EXPORT EduScoreRec := RECORD
@@ -22,7 +22,7 @@ EXPORT File_Composite := MODULE
   UNSIGNED1 PublicSchoolScore;
  END;
 
- EXPORT EduScoreDS := DATASET('~bmf::hackathon::educationscores',EduScoreRec,FLAT);
+ EXPORT EduScoreDS := DATASET('~UGA::Main::Hacks::educationscores',EduScoreRec,FLAT);
  
  //Health
  EXPORT MortScoreRec := RECORD
@@ -33,7 +33,7 @@ EXPORT File_Composite := MODULE
   UNSIGNED1  Mortalityscore;
  END;
 
- EXPORT MortScoreDS := DATASET('~bmf::hackathon::lifescore',MortScoreRec,FLAT);
+ EXPORT MortScoreDS := DATASET('~UGA::Main::Hacks::lifescore',MortScoreRec,FLAT);
  
 //Weather
  EXPORT WeatScoreRec := RECORD
@@ -46,7 +46,7 @@ EXPORT File_Composite := MODULE
   unsigned1 fatscore;
  END;
  
- EXPORT WeatherScoreDS := DATASET('~bmf::hackathon::weatherscores',WeatScoreRec,FLAT);
+ EXPORT WeatherScoreDS := DATASET('~UGA::Main::Hacks::weatherscores',WeatScoreRec,FLAT);
  
 EXPORT Layout := RECORD
   string2  state;
@@ -90,8 +90,8 @@ EXPORT Layout := RECORD
   UNSIGNED1 InjScore;
   UNSIGNED1 FatScore;
  END;
- EXPORT File    := DATASET('~BMF::Hackathon::ParadiseScores',Layout,THOR);
- EXPORT IDX     := INDEX(File,{ParadiseScore},{File},'~BMF::Hackathoin::ParadiseIndex');
+ EXPORT File    := DATASET('~UGA::Main::Hacks::ParadiseScores',Layout,THOR);
+ EXPORT IDX     := INDEX(File,{ParadiseScore},{File},'~UGA::Main::Hacks::ParadiseIndex');
  EXPORT BLD_IDX := BUILD(IDX,OVERWRITE);
 END;
 

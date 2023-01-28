@@ -42,4 +42,4 @@ END;
 
 LifeSum := SORT(TABLE(JoinState2,CTRec,State),SumCum);
 // OUTPUT(LifeSum);
-OUTPUT(LifeSum,,'~BMF::Hackathon::Mortality',OVERWRITE);
+OUTPUT(LifeSum,,'~UGA::Main::Hacks::Mortality',OVERWRITE);

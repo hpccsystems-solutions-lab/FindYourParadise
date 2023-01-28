@@ -6,7 +6,7 @@ CrimeRec := $.File_Crimes.Layout;
 // OUTPUT(bestrecord,ALL);
 
 // Use this code to profile the Crime dataset:
-// profileResults := STD.DataPatterns.Profile(Crime):PERSIST('~BMF::UGA::Persist::CrimeProfile');
+// profileResults := STD.DataPatterns.Profile(Crime):PERSIST('~UGA::Persist::CrimeProfile');
 // OUTPUT(profileResults, ALL, NAMED('profileResults'));
 
 
@@ -63,7 +63,7 @@ END;
 
 BuildRatios := PROJECT(AveCrimeTBL,CalcRatios(LEFT));
 // OUTPUT(PROJECT(AveCrimeTBL,CalcRatios(LEFT)));
-OUTPUT(BuildRatios,,'~BMF::Hackathon::CrimeRates',OVERWRITE);
+OUTPUT(BuildRatios,,'~UGA::Main::Hacks::CrimeRates',OVERWRITE);
 
 
 

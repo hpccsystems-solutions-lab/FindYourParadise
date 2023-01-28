@@ -91,7 +91,7 @@ END;
 SumEventTbl := SORT(TABLE(SevTbl,SumEventsRec,State),State);
 
 // OUTPUT(SumEventTbl, NAMED('StateEventSum'));
-OUTPUT(SumEventTbl,,'~bmf::hackathon::weatherstats',NAMED('WeatherEvents'),OVERWRITE);
+OUTPUT(SumEventTbl,,'~UGA::Main::Hacks::WeatherStats',NAMED('WeatherEvents'),OVERWRITE);
 
 
 

@@ -1,4 +1,5 @@
 ﻿IMPORT $,STD;
+//Combine Public and Private into an All Schools Dataset
 Public  := $.File_PublicSchools.File;
 Private := $.File_PrivateSchools.File;
 
@@ -44,8 +45,8 @@ END;
 AddPublic  := PROJECT(Public,TRANSFORM(CombRec,SELF.RecID := 0,SELF.fid := 'PUBLIC',SELF.LEVEL := LEFT.LEVEL_,SELF.Public := TRUE,SELF := LEFT));
 AddPrivate := PROJECT(Private,TRANSFORM(CombRec,SELF.RecID := 0,SELF.DISTRICTID := 'PRIVATE',SELF.LEVEL := LEFT.LEVEL_,SELF.Public := FALSE,SELF := LEFT));
 SeqAll     := PROJECT(AddPublic+AddPrivate,TRANSFORM(CombRec,SELF.RecID := COUNTER,SELF := LEFT));
-out        := OUTPUT(SeqAll,,'~BMF::OUT::AllUSSchools',OVERWRITE); //default to FLAT/THOR
-temp       := DATASET('~BMF::OUT::AllUSSchools',combRec,THOR);
+out        := OUTPUT(SeqAll,,'~UGA::Main::OUT::AllUSSchools',OVERWRITE); //default to FLAT/THOR
+temp       := DATASET('~UGA::Main::OUT::AllUSSchools',combRec,THOR);
 
 bestrecord := STD.DataPatterns.BestRecordStructure(temp);
 BestRecOut := OUTPUT(bestrecord,ALL);
