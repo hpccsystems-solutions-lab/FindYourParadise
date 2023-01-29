@@ -24,8 +24,126 @@ OUTPUT(COUNT($.File_StateFIPS.File),NAMED('Cnt_FIPS'));
 
 
 
+//Import:ecl:ParadiseHackathon.DCT
+EXPORT DCT := MODULE
+//1=Dangerous,2=Cold,3=Hot,4=Wet,5=Dry,6=Other
+EXPORT Severity :=
+  DATASET([
+    {'Thunderstorm Wind',4}, 
+    {'Hail',1}, 
+    {'Flash Flood',4}, 
+    {'High Wind',1}, 
+    {'Winter Weather',2}, 
+    {'Drought',5}, 
+    {'Winter Storm',2}, 
+    {'Flood',1},
+    {'Marine Thunderstorm Wind',4}, 
+    {'Heavy Snow',1}, 
+    {'Heavy Rain',4}, 
+    {'Heat',3}, 
+    {'Tornado',1}, 
+    {'Strong Wind',1}, 
+    {'Excessive Heat',1}, 
+    {'Extreme Cold/Wind Chill',1}, 
+    {'Dense Fog',6}, 
+    {'Frost/Freeze',2}, 
+    {'Cold/Wind Chill',2}, 
+    {'Blizzard',1}, 
+    {'High Surf',4}, 
+    {'Wildfire',1}, 
+    {'Tropical Storm',1}, 
+    {'Lightning',1}, 
+    {'Funnel Cloud',1}, 
+    {'Ice Storm',1}, 
+    {'Coastal Flood',4}, 
+    {'Waterspout',4}, 
+    {'Debris Flow',1}, 
+    {'Dust Storm',1}, 
+    {'Rip Current',1}, 
+    {'Marine Tropical Storm',1}, 
+    {'Marine High Wind',1}, 
+    {'Storm Surge/Tide',1}, 
+    {'Lake-Effect Snow',2}, 
+    {'Hurricane',1}, 
+    {'Lakeshore Flood',1}, 
+    {'Sleet',2}, 
+    {'Astronomical Low Tide',6}, 
+    {'Tropical Depression ',4}, 
+    {'Marine Hail',1}, 
+    {'Avalanche',1}, 
+    {'Volcanic Ashfall',1}, 
+    {'Dense Smoke',6},
+    {'Marine Hurricane/Typhoon',1}, 
+    {'Freezing Fog',1}, 
+    {'Dust Devil',1}, 
+    {'Marine Strong Wind',1}, 
+    {'Marine Tropical Depression',1}, 
+    {'Tsunami',1}, 
+    {'Marine Dense Fog',1}, 
+    {'Seiche',1}, 
+    {'Sneakerwave',1}    
+    ], {STRING18 EventType,UNSIGNED1 SevCode});
+EXPORT States := 
+   DATASET([
+    {'AK','Alaska'}, 
+    {'AL','Alabama'}, 
+    {'AR','Arkansas'}, 
+    {'AZ','Arizona'}, 
+    {'CA','California'}, 
+    {'CO','Colorado'}, 
+    {'CT','Connecticut'}, 
+    {'DC','District of Columbia'}, 
+    {'DE','Delaware'}, 
+    {'FL','Florida'}, 
+    {'GA','Georgia'}, 
+    {'HI','Hawaii'}, 
+    {'IA','Iowa'}, 
+    {'ID','Idaho'}, 
+    {'IL','Illinois'}, 
+    {'IN','Indiana'}, 
+    {'KS','Kansas'}, 
+    {'KY','Kentucky'}, 
+    {'LA','Louisiana'}, 
+    {'MA','Massachusetts'}, 
+    {'MD','Maryland'}, 
+    {'ME','Maine'}, 
+    {'MI','Michigan'}, 
+    {'MN','Minnesota'}, 
+    {'MO','Missouri'}, 
+    {'MS','Mississippi'}, 
+    {'MT','Montana'}, 
+    {'NC','North Carolina'}, 
+    {'ND','North Dakota'}, 
+    {'NE','New England'}, 
+    {'NH','New Hampshire'}, 
+    {'NJ','New Jersey'}, 
+    {'NM','New Mexico'}, 
+    {'NV','Nevada'}, 
+    {'NY','New York'}, 
+    {'OH','Ohio'}, 
+    {'OK','Oklahoma'}, 
+    {'OR','Oregon'}, 
+    {'PA','Pennsylvania'}, 
+    {'RI','Rhode Island'}, 
+    {'SC','South Carolina'}, 
+    {'SD','South Dakota'}, 
+    {'TN','Tennessee'}, 
+    {'TX','Texas'}, 
+    {'UT','Utah'}, 
+    {'VA','Virginia'}, 
+    {'VT','Vermont'}, 
+    {'WA','Washington'}, 
+    {'WI','Wisconsin'}, 
+    {'WV','West Virginia'}, 
+    {'WY','Wyoming'}], {string2 state,string20 name});    
+ EXPORT SevDCT  := DICTIONARY(Severity,{EventType => SevCode});   
+ EXPORT MapCodeToType(STRING EventType) := SevDCT[EventType].SevCode;
+ EXPORT StDCT   := DICTIONARY(States,{state => name});
+ EXPORT MapST2Name(STRING state) := StDCT[state].name;
+END;
 //Import:ecl:ParadiseHackathon.File_AllSchools
 EXPORT File_AllSchools := MODULE
+//Best layout from BWR_BuildSchools
 EXPORT Layout := RECORD
     UNSIGNED8 RecID;
     BOOLEAN   Public;
@@ -65,108 +183,9 @@ EXPORT Layout := RECORD
     STRING13  shelter_id;
 END;
 
-EXPORT File := DATASET('~BMF::OUT::AllUSSchools',Layout,THOR);
+EXPORT File := DATASET('~UGA::Main::OUT::AllUSSchools',Layout,THOR);
 
 END;
-//Import:ecl:ParadiseHackathon.File_Composite
-//THE HIGHER THE SCORE, THE BETTER THE PARADISE!
-EXPORT File_Composite := MODULE
-//Crime
- EXPORT CrimeScoreRec := RECORD
-  STRING2   State;
-  REAL4     ViolentCompRat;
-  REAL4     PropCompRat;
-  UNSIGNED1 ViolentScore;
-  UNSIGNED1 PropCrimeScore;
- END;
- 
- EXPORT CrimeScoreDS := DATASET('~BMF::hackathon::CrimeScores',CrimeScoreRec,FLAT);
-
-//Education
- EXPORT EduScoreRec := RECORD
-  STRING2   State;
-  integer8  PubCnt;
-  integer8  PrvCnt;
-  real8     AveSTratio;
-  UNSIGNED1 StudentTeacherScore;
-  UNSIGNED1 PrvSchoolScore;
-  UNSIGNED1 PublicSchoolScore;
- END;
-
- EXPORT EduScoreDS := DATASET('~bmf::hackathon::educationscores',EduScoreRec,FLAT);
- 
- //Health
- EXPORT MortScoreRec := RECORD
-  STRING2    State;
-  DECIMAL5_2 Sumcum;
-  DECIMAL5_2 Maxcum;
-  DECIMAL5_2 Mincum;
-  UNSIGNED1  Mortalityscore;
- END;
-
- EXPORT MortScoreDS := DATASET('~bmf::hackathon::lifescore',MortScoreRec,FLAT);
- 
-//Weather
- EXPORT WeatScoreRec := RECORD
-  string2 state;
-  unsigned2 evtsum;
-  unsigned2 injsum;
-  unsigned2 fatsum;
-  unsigned1 evtscore;
-  unsigned1 injscore;
-  unsigned1 fatscore;
- END;
- 
- EXPORT WeatherScoreDS := DATASET('~bmf::hackathon::weatherscores',WeatScoreRec,FLAT);
- 
-EXPORT Layout := RECORD
-  string2  state;
-  string20 StateName;
-  //ParadiseAggregate
-  UNSIGNED2 ParadiseScore;
-  //Education Data
-  // integer8 stcnt;
-  integer8 pubcnt;
-  integer8 prvcnt;
-  // decimal5_2 prpubrat;
-  real8 avestratio;
-  UNSIGNED1 StudentTeacherScore;
-  UNSIGNED1 PrvSchoolScore;
-  UNSIGNED1 PublicSchoolScore;
-  //Crime Data
-  // real4 violentcrimeratio;
-  // real4 homiciderat;
-  // real4 raperat;
-  // real4 agg_assaultrat;
-  real4 violentcomprat; //aggregate of the above 
-  // real4 robberyrat;
-  // real4 prop_crimerat;
-  // real4 burglaryrat;
-  // real4 larcenyrat;
-  // real4 veh_theftrat;
-  real4 propcomprat; //aggregate of the above
-  UNSIGNED1 ViolentScore;
-  UNSIGNED1 PropCrimeScore;
-  //Mortality (Health) Data
-  DECIMAL5_2 sumcum;
-  DECIMAL5_2 maxcum;
-  DECIMAL5_2 mincum;
-  UNSIGNED1 MortalityScore;
-  //Weather Data
-  // UNSIGNED1 sevcode;
-  UNSIGNED2 evtsum;
-  UNSIGNED2 injsum;
-  UNSIGNED2 fatsum;
-  UNSIGNED1 EvtScore;
-  UNSIGNED1 InjScore;
-  UNSIGNED1 FatScore;
- END;
- EXPORT File    := DATASET('~BMF::Hackathon::ParadiseScores',Layout,THOR);
- EXPORT IDX     := INDEX(File,{ParadiseScore},{File},'~BMF::Hackathoin::ParadiseIndex');
- EXPORT BLD_IDX := BUILD(IDX,OVERWRITE);
-END;
-
-
 //Import:ecl:ParadiseHackathon.File_Crimes
 EXPORT File_Crimes := MODULE
 /* This dataset contains estimated data at the state and national level and was derived from the Summary Reporting System (SRS). 
@@ -192,7 +211,7 @@ EXPORT File_Crimes := MODULE
   STRING577 caveats;
  END;
 
-EXPORT File := DATASET('~bmf::uga::estimated_crimes_1979_2020',Layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~uga::main::estimated_crimes_1979_2020',Layout,CSV(HEADING(1)));
 
 
 /* This optional data set contains statistics, in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. Also given is the percent of the population living in urban areas.
@@ -210,7 +229,7 @@ EXPORT File := DATASET('~bmf::uga::estimated_crimes_1979_2020',Layout,CSV(HEADIN
     STRING UrbanPop;
     STRING Rape;
  END;
- EXPORT File2 := DATASET('~bmf::kaggle::us_violent_crime_summary_by_state',layout2,CSV(HEADING(1)));
+ EXPORT File2 := DATASET('~uga::main::us_violent_crime_summary_by_state',layout2,CSV(HEADING(1)));
 
 END;
 //Import:ecl:ParadiseHackathon.File_Mortality
@@ -256,7 +275,7 @@ EXPORT Layout := RECORD
     REAL4 Change_in_Mortality_Rate__1980_2014__Max_;
 END;
 
-EXPORT File := DATASET('~bmf::kaggle::mortalitybyuscounty',layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~uga::main::mortalitybyuscounty',layout,CSV(HEADING(1)));
 END;
 //Import:ecl:ParadiseHackathon.File_PrivateSchools
 /* This dataset, taken from the US Department of Homeland Security, 
@@ -300,7 +319,7 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-EXPORT File := DATASET('~bmf::kaggle::private_schoolsus',layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~uga::main::private_schoolsUS',layout,CSV(HEADING(1)));
 
 END;
 //Import:ecl:ParadiseHackathon.File_PublicSchools
@@ -351,7 +370,7 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-EXPORT File  := DATASET('~bmf::kaggle::public_schoolsus',layout,CSV(HEADING(1)));
+EXPORT File  := DATASET('~uga::main::public_schoolsUS',layout,CSV(HEADING(1)));
 
 
 END;
@@ -365,7 +384,7 @@ EXPORT File_StateFIPS := MODULE
     STRING2    Class;
 END;
 
- EXPORT File := DATASET('~bmf::kaggle::statefips',Layout,CSV(Heading(1)));
+ EXPORT File := DATASET('~uga::main::statefips',Layout,CSV(Heading(1)));
 END;
 
 //Import:ecl:ParadiseHackathon.File_Weather
@@ -424,5 +443,5 @@ EXPORT Layout := RECORD //RECORD Optimized using BestRecord function (See BWR_An
     STRING3   data_source;
 END;
 
-EXPORT File := DATASET('~bmf::noaa::SF::StormEvents',layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~UGA::noaa::SF::StormEvents',layout,CSV(HEADING(1)));
 END;
