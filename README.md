@@ -82,7 +82,7 @@ Data points will be created for each category, sorted by US State or by County. 
 <div class="mentors">
 
 <div>
-<img src="./Images/Bob.png" alt="Bob Foreman" width="85" height="100" />
+<img src="./Images/Bob.png" alt="Bob Foreman" width="100" height="100" />
 <p><a href = "mailto: robert.foreman@lexisnexisrisk.com">Bob Foreman</a> has been an ECL Trainer for the past 12 years, and has been a Technology Teacher for longer than he wants to admit. He will be your primary onsite contact regarding all ECL related questions during this event.</p>
 </div>
 
