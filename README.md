@@ -83,12 +83,12 @@ Data points will be created for each category, sorted by US State or by County. 
 
 <div>
 <img src="./Images/Bob.jpg" alt="Bob Foreman" width="85" height="100" />
-<p><a href = "mailto: robert.foreman@lexisnexisrisk.com">Bob Foreman</a>has been an ECL Trainer for the past 12 years, and has been a Technology Teacher for longer than he wants to admit. He will be your primary onsite contact regarding all ECL related questions during this event.</p>
+<p><a href = "mailto: robert.foreman@lexisnexisrisk.com">Bob Foreman</a> has been an ECL Trainer for the past 12 years, and has been a Technology Teacher for longer than he wants to admit. He will be your primary onsite contact regarding all ECL related questions during this event.</p>
 </div>
 
 <div>
 <img src="./Images/George.png" alt="George Foreman" width="100" />
-<p>[George S. Foreman](mailto:george.foreman@lexisnexisrisk.com) is our HPCC Systems Product Specialist and Technical Writer. He will be available onsite to help you with locating the resources you need during this event.</p>
+<p><a href = "mailto: george.foreman@lexisnexisrisk.com">George Foreman</a> is our HPCC Systems Product Specialist and Technical Writer. He will be available onsite to help you with locating the resources you need during this event.</p>
 </div>
 <div></div>
 </div>
