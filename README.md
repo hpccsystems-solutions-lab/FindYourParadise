@@ -81,7 +81,7 @@ Data points will be created for each category, sorted by US State or by County. 
 
 <div>
 <img src="./Images/Bob.jpg" alt="Bob Foreman" width="85" height="100" />
-<p>Bob has been an ECL Trainer for the past 12 years, and has been a Technology Teacher for longer than he wants to admit. He will be you primary onsite contact regarding all ECL related questions during this event.</p>
+<p>Bob has been an ECL Trainer for the past 12 years, and has been a Technology Teacher for longer than he wants to admit. He will be your primary onsite contact regarding all ECL related questions during this event.</p>
 </div>
 
 <div>
