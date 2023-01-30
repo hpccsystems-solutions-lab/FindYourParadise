@@ -36,7 +36,7 @@ PDFs in the Docs folder of this repository can be found to guide you through the
 [VS-Code IDE Install Page](https://code.visualstudio.com/download).
 
 Download QuickStart.mod located in this repository's root folder. This file has the initial code you need for this challenge. 
-The import process will be discussed at the Workshops, but in both IDEs simply open the MOD file and follow the prompts. CTRL+O in the ECL IDE, and the F1 key in VS-Code will pop up the command dialog, and look for "ECL: Import 'mod' file. 
+The import process will be discussed at the Workshops, but in both IDEs simply open the MOD file and follow the prompts. CTRL+O in the ECL IDE, and the F1 key in VS-Code will pop up the command dialog, and look for "ECL: Import 'mod' file" command. 
 
 If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://54.177.201.47:8010)
 
