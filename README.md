@@ -16,13 +16,13 @@ Every person’s definition of what make them happy can vary depending on severa
 •	Health 
 •	Education
 
-Crime – A dataset by US State with crimes between 2018-2021 is provided. Data points can include the number of crimes by State and Violent Crimes by State.
+**Crime** – A dataset by US State with crimes between 2018-2021 is provided. Data points can include the number of crimes by State and Violent Crimes by State.
 
-Climate – A dataset of Storm Data in the US over the last 10 years will be provided. Data Points can include number of storms by State, also injuries and fatalities due to a weather incident.
+**Climate** – A dataset of Storm Data in the US over the last 10 years will be provided. Data Points can include number of storms by State, also injuries and fatalities due to a weather incident.
 
-Health – A mortality rate by State from 1980 to 2020 dataset will be provided. Data points can include total mortality and/or average mortality by year and State.
+**Health** – A mortality rate by State from 1980 to 2020 dataset will be provided. Data points can include total mortality and/or average mortality by year and State.
 
-Education – A dataset of the number of public and private schools by State will be provided. Data points include total school by State and percentage of Private Schools available to the Total Schools by State. Also, enrollment and student-to-teacher ratio can be a factor.  
+**Education** – A dataset of the number of public and private schools by State will be provided. Data points include total school by State and percentage of Private Schools available to the Total Schools by State. Also, enrollment and student-to-teacher ratio can be a factor.  
 
 ## Tools
 
@@ -39,6 +39,8 @@ Download QuickStart.mod located in this repository's root folder. This file has 
 The import process will be discussed at the Workshops, but in both IDEs simply open the MOD file and follow the prompts. CTRL+O in the ECL IDE, and the F1 key in VS-Code will pop up the command dialog, and look for "ECL: Import 'mod' file. 
 
 If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://54.177.201.47:8010)
+
+**Note: This cluster will only be active during the event!** After the event, you can create your own localized container cluster, or visit our public "Play" Cluster: (https://play.hpccsystems.com:18010) 
 
 For a quick start on ECL syntax, please use [Learn ECL](https://hpccsystems-solutions-lab.github.io/). 
 
