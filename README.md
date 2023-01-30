@@ -42,7 +42,7 @@ If you need more information on the ECL jobs you are running please use [ECL Wat
 
 **Note: This cluster will only be active during the event!** After the event, you can create your own localized container cluster, or visit our public "Play" Cluster: (https://play.hpccsystems.com:18010) 
 
-For a quick start on ECL syntax, please use [Learn ECL](https://hpccsystems-solutions-lab.github.io/). 
+For a quick start on ECL syntax, please visit the [Learn ECL](https://hpccsystems-solutions-lab.github.io/) page. 
 
 ## Additional Resources
 
