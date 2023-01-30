@@ -75,7 +75,7 @@ Judges will consider followings during final presentation:
 - Drawing conclusion (Where is your Paradise?)
 - Demo of work via a PowerPoint presentation or live demo
 
-Data points will be created for each category, sorted by US State or by County. The product should be able to allow selection of one or all categories, and then weigh each category in order of importance. Based on the weigh a score will be generated for each category selected and a "Top 10" list of States with their weighed scores will be displayed.
+Data points will be created for each category, sorted by US State or by County. The product should be able to allow selection of one or all categories, and then weigh each category in order of importance. Based on the weight, a score will be generated for each category selected and a "Top 10" list of States with their weighed scores will be displayed.
 
 ## Mentors
 
@@ -87,7 +87,7 @@ Data points will be created for each category, sorted by US State or by County. 
 </div>
 
 <div>
-<img src="./Images/George.jpg" alt="George Foreman" width="100" />
+<img src="./Images/George.png" alt="George Foreman" width="100" />
 <p>George is our HPCC Systems Product Specialist and Technical Writer. He will be available onsite to help you with locating the resources you need during this event.</p>
 </div>
 <div></div>
