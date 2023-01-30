@@ -8,7 +8,7 @@ An HPCC Systems Hackathon Challenge!
 
 Have you ever thought about building an application that can help people find places to live that maximize their quality of life and happiness?
 
-The goal of this challenge is to analyze numerous datasets across different categories and make correlations with the data, using the HPCC Systems platform. After analyzing, design an interface to query this data to deliver to the user a scoring system output to help measure where they should most likely want to live. Users should be given choices in an easy-to-use form that when submitted will generate a unique set of scores based on locations (Example: By State).
+The goal of this challenge is to analyze numerous datasets across different categories and make correlations with the data, using the HPCC Systems platform. After analyzing, the participants will be asked to design an interface to query this data and assign it a scoring system, then deliver it to the user via ROXIE and show the user where they should most likely want to live. Users should be given choices in an easy-to-use form that when submitted will generate a unique set of scores based on locations (Example: By State).
 
 Every person’s definition of what make them happy can vary depending on several factors. To this challenge, we have narrowed these factors to four (4) categories:
 •	Crime 
