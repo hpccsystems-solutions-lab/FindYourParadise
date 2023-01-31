@@ -42,7 +42,12 @@ CombRec := RECORD //Combination of Public and Private
     STRING SHELTER_ID;
 END;
 
-AddPublic  := PROJECT(Public,TRANSFORM(CombRec,SELF.RecID := 0,SELF.fid := 'PUBLIC',SELF.LEVEL := LEFT.LEVEL_,SELF.Public := TRUE,SELF := LEFT));
+AddPublic  := PROJECT(Public,TRANSFORM(CombRec,
+                                       SELF.RecID := 0,
+                                       SELF.fid := 'PUBLIC',
+                                       SELF.LEVEL := LEFT.LEVEL_,
+                                       SELF.Public := TRUE,
+                                       SELF := LEFT));
 AddPrivate := PROJECT(Private,TRANSFORM(CombRec,SELF.RecID := 0,SELF.DISTRICTID := 'PRIVATE',SELF.LEVEL := LEFT.LEVEL_,SELF.Public := FALSE,SELF := LEFT));
 SeqAll     := PROJECT(AddPublic+AddPrivate,TRANSFORM(CombRec,SELF.RecID := COUNTER,SELF := LEFT));
 out        := OUTPUT(SeqAll,,'~UGA::Main::OUT::AllUSSchools',OVERWRITE); //default to FLAT/THOR

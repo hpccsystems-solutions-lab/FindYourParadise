@@ -20,6 +20,9 @@ END;
 
 TempTbl := TABLE(Health_DS,RankTbl);
 
-AddLifeScore := ITERATE(SORT(TempTbl,-sumcum),TRANSFORM(RankTbl,SELF.MortalityScore := IF(LEFT.sumcum=RIGHT.sumcum,LEFT.MortalityScore,LEFT.MortalityScore+1),SELF := RIGHT));
+AddLifeScore := ITERATE(SORT(TempTbl,-sumcum),
+                        TRANSFORM(RankTbl,
+                                  SELF.MortalityScore := IF(LEFT.sumcum=RIGHT.sumcum,LEFT.MortalityScore,LEFT.MortalityScore+1),
+                                  SELF := RIGHT));
 
 OUTPUT(AddLifeScore,,'~UGA::Main::Hacks::LifeScore',NAMED('TopLife'),OVERWRITE);

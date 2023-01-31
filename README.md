@@ -2,7 +2,7 @@
 
 An HPCC Systems Hackathon Challenge!
 
-# Challenge
+# Challenge Overview
 
 ## Find Your Paradise by weighing selected "quality of life" factors
 
@@ -76,6 +76,15 @@ Judges will consider followings during final presentation:
 - Demo of work via a PowerPoint presentation or live demo
 
 Data points will be created for each category, sorted by US State or by County. The product should be able to allow selection of one or all categories, and then weigh each category in order of importance. Based on the weight, a score will be generated for each category selected and a "Top 10" list of States with their weighed scores will be displayed.
+
+## Tips for a Great Score
+
+- Since your solution is the key part to this challenge you can use "#OPTION('obfuscateOutput', TRUE);" at the start of your code to hide it from being viewed on ECL Watchpage. If you decide to use #OPTION make sure to remove if from the WUID that you shared with the judges. When obfuscateOutput set to true, details are removed from the generated workunit, including ECL code, estimates of record size, and number of records.
+- If you want to write the result to a file, make sure the file name starts with your team's name for uniqueness purpose.
+- Make sure the query names are unique and easy to identify. Do not use generic names like test, mentors, or roxie. We suggest adding your team's name as well. General names will result in other teams overwriting your files, queries, and results
+- We encourage team play so teams that help answer questions in the public forums will be considered favorably in judging.
+- Direct emails and direct messages to judges asking for support will be **ignored** and it won't work in team's favor
+- We also encourage students to leverage our community forum and/or StackOverflow for ECL coding related questions. Please make sure to tag your questions with **hpcc-ecl**.
 
 ## Mentors
 

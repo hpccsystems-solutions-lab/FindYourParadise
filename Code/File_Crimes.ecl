@@ -2,7 +2,7 @@
 /* This dataset contains estimated data at the state and national level and was derived from the Summary Reporting System (SRS). 
    These data reflect the estimates the FBI has traditionally included in its annual publications. 
    Download this dataset to see the FBI's estimated crime totals for the nation and all 50 states, 1979 to current year available.
-   Source: https://crime-data-explorer.app.cloud.gov/pages/downloads
+   Source: https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads#nibrs-downloads
 */
  EXPORT Layout := RECORD
   UNSIGNED2 year;
@@ -32,6 +32,11 @@ EXPORT File := DATASET('~uga::main::estimated_crimes_1979_2020',Layout,CSV(HEADI
    Assault is numeric and Assault arrests (per 100,000)
    UrbanPop is numeric and UrbanPop arrests (per 100,000)
    Rape is numeric and Rape arrests (per 100,000)
+
+Source: World Almanac and Book of facts 1975. (Crime rates).
+Statistical Abstracts of the United States 1975. (Urban rates).
+
+https://www.kaggle.com/datasets/mathchi/violent-crime-rates-by-us-state
 */
  EXPORT Layout2 := RECORD
     STRING State;

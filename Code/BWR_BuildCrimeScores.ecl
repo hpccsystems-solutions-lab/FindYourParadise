@@ -1,20 +1,19 @@
 ﻿CrimeRec := RECORD
-  string2 state;
-  real4 violentcrimeratio;
-  real4 homiciderat;
-  real4 raperat;
-  real4 agg_assaultrat;
-  real4 violentcomprat; //Sum of above ratios
-  real4 robberyrat;
-  real4 prop_crimerat;
-  real4 burglaryrat;
-  real4 larcenyrat;
-  real4 veh_theftrat;
-  real4 propcomprat;    //Sum of above ratios Property Composite Ratio
+ STRING2 State;
+ DECIMAL5_4   ViolentCrimeRatio;
+ DECIMAL5_4   HomicideRat;
+ DECIMAL5_4   RapeRat;
+ DECIMAL5_4   Agg_AssaultRat;       
+ DECIMAL5_4   ViolentCompRat; //Average of Homicide and Rape
+ DECIMAL5_4   RobberyRat;    
+ DECIMAL5_4   Prop_CrimeRat; 
+ DECIMAL5_4   BurglaryRat;   
+ DECIMAL5_4   LarcenyRat;    
+ DECIMAL5_4   Veh_TheftRat;  
+ DECIMAL5_4   PropCompRat;    //Average of all Property Crimes  
 END;
 
-Crime_DS := DATASET('~UGA::Main::Hacks::CrimeRates',CrimeRec,FLAT);
-Crime_DS;
+Crime_DS := DATASET('~UGA::Main::Hacks::CrimeRates',CrimeRec,FLAT);  //Created in BWR_Analyze Crime
 
 //Build Scores (higher score, better rating)
 RankTbl := RECORD
@@ -25,10 +24,11 @@ RankTbl := RECORD
  UNSIGNED1 PropCrimeScore := 0;
 END;
 
-
 TempTbl := TABLE(Crime_DS,RankTbl);
 
-AddViolentScore := ITERATE(SORT(TempTbl,-violentcomprat),TRANSFORM(RankTbl,SELF.ViolentScore := IF(LEFT.violentcomprat=RIGHT.violentcomprat,LEFT.ViolentScore,LEFT.ViolentScore+1),SELF := RIGHT));
+AddViolentScore := ITERATE(SORT(TempTbl,-violentcomprat),TRANSFORM(RankTbl,
+                                                                   SELF.ViolentScore := IF(LEFT.violentcomprat=RIGHT.violentcomprat,LEFT.ViolentScore,LEFT.ViolentScore+1),
+                                                                   SELF := RIGHT));
 AddPropScore    := ITERATE(SORT(AddViolentScore,-propcomprat),TRANSFORM(RankTbl,SELF.PropCrimeScore := IF(LEFT.propcomprat=RIGHT.propcomprat,LEFT.PropCrimeScore,LEFT.PropCrimeScore+1),SELF := RIGHT));
 
 OUTPUT(AddPropScore,,'~UGA::Main::Hacks::CrimeScores',NAMED('TopCrime'),OVERWRITE);

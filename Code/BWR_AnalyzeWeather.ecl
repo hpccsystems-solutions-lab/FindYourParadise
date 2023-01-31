@@ -17,9 +17,13 @@ NewStormRec := RECORD
  StormRec;
 END;
 
-SeqRecs := PROJECT(Storm,TRANSFORM(NewStormRec,SELF.RecID := COUNTER,SELF.State := '',SELF := LEFT));
+SeqRecs := PROJECT(Storm,TRANSFORM(NewStormRec,SELF.RecID := COUNTER,SELF.State := '',SELF := LEFT)); //Sequence by COUNTER
 
-JoinState := JOIN(SeqRecs((INTEGER)State_Fips BETWEEN 1 AND 80),StFIPS,LEFT.State_Fips=RIGHT.StateCode,TRANSFORM(NewStormRec,SELF.State := RIGHT.State,SELF := LEFT),LOOKUP,LEFT OUTER);
+JoinState := JOIN(SeqRecs((INTEGER)State_Fips BETWEEN 1 AND 80),StFIPS,LEFT.State_Fips=RIGHT.StateCode,
+                  TRANSFORM(NewStormRec,
+                            SELF.State := RIGHT.State,
+                            SELF := LEFT)
+                  ,LOOKUP,LEFT OUTER);
 
 //(1) CrossTab by StateCode
 CTRec := RECORD
@@ -65,7 +69,7 @@ SevClean2 := PROJECT(BuildSev,TRANSFORM(SevRec,SELF.SevCode := CASE(LEFT.Event_T
                                                                                     'Extreme Cold/Wind Chill' => 1,
                                                                                     LEFT.SevCode),SELF := LEFT));
 
-OUTPUT(SevClean2);
+OUTPUT(SevClean2,NAMED('AddSeverity'));
 
 WeatherScoreRec := RECORD
  SevClean2.State;

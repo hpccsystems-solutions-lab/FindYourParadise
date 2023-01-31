@@ -41,4 +41,33 @@ EXPORT Layout := RECORD
 END;
 
 EXPORT File := DATASET('~uga::main::mortalitybyuscounty',layout,CSV(HEADING(1)));
+
+// From: https://ghdx.healthdata.org/record/ihme-data/united-states-life-expectancy-by-state-white-black-hispanic-race-ethnicity-1990-2019
+// Mortality By State
+/* Estimates were produced for mortality rates, life expectancy, and population at the state level in the United States, 
+   and by racial/ethnic group, for each year between 1990-2019. 
+   These estimates were produced using population and deaths data from the National Center for Health Statistics.
+*/
+
+EXPORT Layout2 := RECORD  //Best Record generated
+    UNSIGNED1 measure_id;
+    STRING24 measure_name;
+    UNSIGNED3 location_id;
+    STRING47 location_name;
+    STRING20 state_name;
+    STRING25 race_ethnicity_group;
+    UNSIGNED1 sex_id;
+    STRING6 sex_name;
+    UNSIGNED2 age_group_id;
+    STRING8 age_group_name;
+    UNSIGNED2 year_id;
+    UNSIGNED1 metric_id;
+    STRING6 metric_name;
+    STRING11 val;
+    STRING11 upper;
+    STRING11 lower;
+END;
+
+EXPORT File2 := DATASET('~uga::main::mortalitybyusstate2000to2019',Layout2,CSV(HEADING(1)));
+
 END;

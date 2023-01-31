@@ -10,7 +10,7 @@ CrimeRec := $.File_Crimes.Layout;
 // OUTPUT(profileResults, ALL, NAMED('profileResults'));
 
 
-// Cross-Tab by State
+// Cross-Tab by State, Average of all years 1979-2020, ROUND to nearest INTEGER
 CTRec := RECORD
   Crime.state_abbr;
   PopAvg          := ROUND(AVE(GROUP,Crime.population));
@@ -26,24 +26,24 @@ CTRec := RECORD
 END;
 
 AveCrimeTBL := TABLE(Crime(state_abbr <> ''),CtRec,State_abbr);
-OUTPUT(SORT(AveCrimeTBL,state_abbr));
+OUTPUT(SORT(AveCrimeTBL,state_abbr),NAMED('AVE_AllYears'));
 
 
 //Generate ratios for Paradise Service
 
 RatioRec := RECORD
  STRING2 State;
- REAL4   ViolentCrimeRatio;
- REAL4   HomicideRat;
- REAL4   RapeRat;
- REAL4   Agg_AssaultRat;       
- REAL4   ViolentCompRat; //Average of Homicide and Rape
- REAL4   RobberyRat;    
- REAL4   Prop_CrimeRat; 
- REAL4   BurglaryRat;   
- REAL4   LarcenyRat;    
- REAL4   Veh_TheftRat;  
- REAL4   PropCompRat;    //Average of all Property Crimes
+ DECIMAL5_4   ViolentCrimeRatio;
+ DECIMAL5_4   HomicideRat;
+ DECIMAL5_4   RapeRat;
+ DECIMAL5_4   Agg_AssaultRat;       
+ DECIMAL5_4   ViolentCompRat; //Average of Homicide and Rape
+ DECIMAL5_4   RobberyRat;    
+ DECIMAL5_4   Prop_CrimeRat; 
+ DECIMAL5_4   BurglaryRat;   
+ DECIMAL5_4   LarcenyRat;    
+ DECIMAL5_4   Veh_TheftRat;  
+ DECIMAL5_4   PropCompRat;    //Average of all Property Crimes
 END;
 
 RatioRec CalcRatios(AveCrimeTBL Le) := TRANSFORM
@@ -63,7 +63,7 @@ END;
 
 BuildRatios := PROJECT(AveCrimeTBL,CalcRatios(LEFT));
 // OUTPUT(PROJECT(AveCrimeTBL,CalcRatios(LEFT)));
-OUTPUT(BuildRatios,,'~UGA::Main::Hacks::CrimeRates',OVERWRITE);
+OUTPUT(BuildRatios,,'~UGA::Main::Hacks::CrimeRates',NAMED('CrimeRatiosByPopulation'),OVERWRITE);
 
 
 

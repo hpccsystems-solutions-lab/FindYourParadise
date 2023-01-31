@@ -1,4 +1,15 @@
-﻿EXPORT File_Weather := MODULE
+﻿/* The Storm Events Database contains the records used to create the official NOAA Storm Data publication, documenting:
+   
+   The occurrence of storms and other significant weather phenomena having sufficient intensity to cause loss of life, injuries, significant property damage, and/or disruption to commerce;
+   Rare, unusual, weather phenomena that generate media attention, such as snow flurries in South Florida or the San Diego coastal area; and
+   Other significant meteorological events, such as record maximum or minimum temperatures or precipitation that occur in connection with another event.
+   
+   The database currently contains data from January 1950 to October 2022, as entered by NOAA's National Weather Service (NWS).
+   https://www.ncdc.noaa.gov/stormevents/
+*/
+
+
+EXPORT File_Weather := MODULE
 EXPORT Layout := RECORD //RECORD Optimized using BestRecord function (See BWR_AnalyzeWeather)
     UNSIGNED3 begin_yearmonth;
     UNSIGNED3 begin_day;

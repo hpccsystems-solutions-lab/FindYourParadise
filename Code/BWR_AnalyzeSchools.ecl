@@ -1,7 +1,6 @@
 ﻿IMPORT $,STD;
 Schools := $.File_AllSchools.File;
 
-
 //CrossTab by State
 
 //Use this code to profile the All Schools dataset:
@@ -34,7 +33,7 @@ Clean_ByState := PROJECT(ByState,TRANSFORM(RECORDOF(ByState),
                                            SELF.PrPubRat := (LEFT.PrvCnt/LEFT.PubCnt) * 100,
                                            SELF := LEFT));
 // SORT(Clean_ByState,AveStRatio);
-OUTPUT(Clean_ByState,,'~UGA::Main::Hacks::EducationSummary',OVERWRITE);
+OUTPUT(Clean_ByState,,'~UGA::Main::Hacks::EducationSummary',NAMED('CountsRatios'),OVERWRITE);
 
 
 

@@ -14,6 +14,9 @@ OUTPUT(COUNT($.File_Crimes.File2),NAMED('Cnt_VCrimes'));
 OUTPUT($.File_Mortality.File,NAMED('Mortality'));
 OUTPUT(COUNT($.File_Mortality.File),NAMED('Cnt_Mortality'));
 
+OUTPUT($.File_Mortality.File2,NAMED('Mortality_ByState'));
+OUTPUT(COUNT($.File_Mortality.File2),NAMED('Cnt_Mortality_By_State'));
+
 OUTPUT($.File_Weather.File,NAMED('Storms'));
 OUTPUT(COUNT($.File_Weather.File),NAMED('Cnt_Storms'));
 

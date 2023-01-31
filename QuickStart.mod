@@ -15,6 +15,9 @@ OUTPUT(COUNT($.File_Crimes.File2),NAMED('Cnt_VCrimes'));
 OUTPUT($.File_Mortality.File,NAMED('Mortality'));
 OUTPUT(COUNT($.File_Mortality.File),NAMED('Cnt_Mortality'));
 
+OUTPUT($.File_Mortality.File2,NAMED('Mortality_ByState'));
+OUTPUT(COUNT($.File_Mortality.File2),NAMED('Cnt_Mortality_By_State'));
+
 OUTPUT($.File_Weather.File,NAMED('Storms'));
 OUTPUT(COUNT($.File_Weather.File),NAMED('Cnt_Storms'));
 
@@ -191,7 +194,7 @@ EXPORT File_Crimes := MODULE
 /* This dataset contains estimated data at the state and national level and was derived from the Summary Reporting System (SRS). 
    These data reflect the estimates the FBI has traditionally included in its annual publications. 
    Download this dataset to see the FBI's estimated crime totals for the nation and all 50 states, 1979 to current year available.
-   Source: https://crime-data-explorer.app.cloud.gov/pages/downloads
+   Source: https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads#nibrs-downloads
 */
  EXPORT Layout := RECORD
   UNSIGNED2 year;
@@ -221,6 +224,11 @@ EXPORT File := DATASET('~uga::main::estimated_crimes_1979_2020',Layout,CSV(HEADI
    Assault is numeric and Assault arrests (per 100,000)
    UrbanPop is numeric and UrbanPop arrests (per 100,000)
    Rape is numeric and Rape arrests (per 100,000)
+
+Source: World Almanac and Book of facts 1975. (Crime rates).
+Statistical Abstracts of the United States 1975. (Urban rates).
+
+https://www.kaggle.com/datasets/mathchi/violent-crime-rates-by-us-state
 */
  EXPORT Layout2 := RECORD
     STRING State;
@@ -276,6 +284,35 @@ EXPORT Layout := RECORD
 END;
 
 EXPORT File := DATASET('~uga::main::mortalitybyuscounty',layout,CSV(HEADING(1)));
+
+// From: https://ghdx.healthdata.org/record/ihme-data/united-states-life-expectancy-by-state-white-black-hispanic-race-ethnicity-1990-2019
+// Mortality By State
+/* Estimates were produced for mortality rates, life expectancy, and population at the state level in the United States, 
+   and by racial/ethnic group, for each year between 1990-2019. 
+   These estimates were produced using population and deaths data from the National Center for Health Statistics.
+*/
+
+EXPORT Layout2 := RECORD  //Best Record generated
+    UNSIGNED1 measure_id;
+    STRING24 measure_name;
+    UNSIGNED3 location_id;
+    STRING47 location_name;
+    STRING20 state_name;
+    STRING25 race_ethnicity_group;
+    UNSIGNED1 sex_id;
+    STRING6 sex_name;
+    UNSIGNED2 age_group_id;
+    STRING8 age_group_name;
+    UNSIGNED2 year_id;
+    UNSIGNED1 metric_id;
+    STRING6 metric_name;
+    STRING11 val;
+    STRING11 upper;
+    STRING11 lower;
+END;
+
+EXPORT File2 := DATASET('~uga::main::mortalitybyusstate2000to2019',Layout2,CSV(HEADING(1)));
+
 END;
 //Import:ecl:ParadiseHackathon.File_PrivateSchools
 /* This dataset, taken from the US Department of Homeland Security, 
@@ -319,18 +356,17 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-EXPORT File := DATASET('~uga::main::private_schoolsUS',layout,CSV(HEADING(1)));
+// EXPORT File := DATASET('~uga::main::private_schoolsUS',layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~uga::main::private_schoolsUSUpd',layout,CSV(HEADING(1)));
 
 END;
 //Import:ecl:ParadiseHackathon.File_PublicSchools
-/* This dataset was downloaded on March 23, 2019 from: https://hifld-geoplatform.opendata.arcgis.com/datasets/87376bdb0cb3490cbda39935626f6604_0
-   
+/* This dataset was downloaded from: https://hifld-geoplatform.opendata.arcgis.com/datasets/87376bdb0cb3490cbda39935626f6604_0
    This dataset is provided by the Homeland Infrastructure Foundation-Level Data (HIFLD) without a license and for Public Use.
    
    HIFLD Open GP - Education
    Shared By: jrayer_geoplatform
    Data Source: services1.arcgis.com
-   
    Users are advised to read the data set's metadata thoroughly to understand appropriate use and data limitations.
 */
 EXPORT File_PublicSchools := MODULE
@@ -370,7 +406,8 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-EXPORT File  := DATASET('~uga::main::public_schoolsUS',layout,CSV(HEADING(1)));
+// EXPORT File  := DATASET('~uga::main::public_schoolsUS',layout,CSV(HEADING(1)));
+EXPORT File  := DATASET('~uga::main::public_schoolsUSUpd',layout,CSV(HEADING(1)));
 
 
 END;
@@ -388,6 +425,17 @@ END;
 END;
 
 //Import:ecl:ParadiseHackathon.File_Weather
+/* The Storm Events Database contains the records used to create the official NOAA Storm Data publication, documenting:
+   
+   The occurrence of storms and other significant weather phenomena having sufficient intensity to cause loss of life, injuries, significant property damage, and/or disruption to commerce;
+   Rare, unusual, weather phenomena that generate media attention, such as snow flurries in South Florida or the San Diego coastal area; and
+   Other significant meteorological events, such as record maximum or minimum temperatures or precipitation that occur in connection with another event.
+   
+   The database currently contains data from January 1950 to October 2022, as entered by NOAA's National Weather Service (NWS).
+   https://www.ncdc.noaa.gov/stormevents/
+*/
+
+
 EXPORT File_Weather := MODULE
 EXPORT Layout := RECORD //RECORD Optimized using BestRecord function (See BWR_AnalyzeWeather)
     UNSIGNED3 begin_yearmonth;

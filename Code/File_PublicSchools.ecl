@@ -1,11 +1,9 @@
-﻿/* This dataset was downloaded on March 23, 2019 from: https://hifld-geoplatform.opendata.arcgis.com/datasets/87376bdb0cb3490cbda39935626f6604_0
-   
+﻿/* This dataset was downloaded from: https://hifld-geoplatform.opendata.arcgis.com/datasets/87376bdb0cb3490cbda39935626f6604_0
    This dataset is provided by the Homeland Infrastructure Foundation-Level Data (HIFLD) without a license and for Public Use.
    
    HIFLD Open GP - Education
    Shared By: jrayer_geoplatform
    Data Source: services1.arcgis.com
-   
    Users are advised to read the data set's metadata thoroughly to understand appropriate use and data limitations.
 */
 EXPORT File_PublicSchools := MODULE
@@ -45,7 +43,8 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-EXPORT File  := DATASET('~uga::main::public_schoolsUS',layout,CSV(HEADING(1)));
+// EXPORT File  := DATASET('~uga::main::public_schoolsUS',layout,CSV(HEADING(1)));
+EXPORT File  := DATASET('~uga::main::public_schoolsUSUpd',layout,CSV(HEADING(1)));
 
 
 END;
