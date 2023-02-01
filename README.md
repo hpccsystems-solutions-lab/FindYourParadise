@@ -99,6 +99,17 @@ Data points will be created for each category, sorted by US State or by County. 
 <img src="./Images/George.png" alt="George Foreman" width="100" />
 <p><a href = "mailto: george.foreman@lexisnexisrisk.com">George Foreman</a> is our HPCC Systems Product Specialist and Technical Writer. He will be available onsite to help you with locating the resources you need during this event.</p>
 </div>
+
+<div>
+<img src="./Images/Hugo.jpg" alt="Hugo Watanuki" width="100" />
+<p><a href = "mailto: hugo.watanuki@lexisnexisrisk.com">Hugo Watanuki</a> is responsible for the HPCC Systems Summer Internship Program. He will be available online in our slack channel to help you with ECL questions and resources you might need during this event.</p>
+</div>
+
+<div>
+<img src="./Images/MauroDM.jpg" alt="Mauro Marques" width="100" />
+<p><a href = "mailto: mauro.marques@lexisnexisrisk.com">Mauro Marques</a> is a Senior Technical Support Engineer at LexisNexis Risk Solutions, and supports the development and delivery of training programs for the HPCC Systems platform in the Brazil region. He will also be available online in our slack channel to help you with ECL questions and resources you might need during this event.</p>
+</div>
+
 <div></div>
 </div>
 
