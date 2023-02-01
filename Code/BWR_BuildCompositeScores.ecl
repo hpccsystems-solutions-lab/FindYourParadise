@@ -7,7 +7,7 @@ CombLayout := $.File_Composite.Layout;
 
 
 MergeWeather := PROJECT(WeatherDS,TRANSFORM(CombLayout,SELF.StateName := $.DCT.MapST2Name(LEFT.State),SELF := LEFT,SELF := []));
-MergeWeather;
+OUTPUT(MergeWeather,NAMED('AddStateToWeather'));
 
 // ViolentCompRat;
 // PropCompRat;
@@ -21,7 +21,7 @@ MergeCrime := JOIN(MergeWeather,CrimeDS,
                              SELF.ViolentScore   := RIGHT.ViolentScore,
                              SELF.PropCrimeScore := RIGHT.PropCrimeScore,
                              SELF := LEFT),LOOKUP);
-MergeCrime;
+OUTPUT(MergeCrime,NAMED('CrimeandWeather'));
 
 // pubcnt;
 // prvcnt;
@@ -39,7 +39,7 @@ MergeEducation := JOIN(MergeCrime,EdDS,
                                  SELF.PrvSchoolScore      := RIGHT.PrvSchoolScore,
                                  SELF.PublicSchoolScore   := RIGHT.PublicSchoolScore,
                                  SELF := LEFT),LOOKUP);
-MergeEducation;
+OUTPUT(MergeEducation,NAMED('CrimeWeatherEducation'));
 
 // sumcum;
 // maxcum;
@@ -55,9 +55,9 @@ MergeAll := JOIN(MergeEducation,HealthDS,
                     SELF := LEFT),LOOKUP);
                     
 CombLayout CompTotal(CombLayout Le) := TRANSFORM
-SELF.ParadiseScore := Le.StudentTeacherScore + Le.PrvSchoolScore + Le.PublicSchoolScore + Le.ViolentScore + Le.PropCrimeScore +
+ SELF.ParadiseScore := Le.StudentTeacherScore + Le.PrvSchoolScore + Le.PublicSchoolScore + Le.ViolentScore + Le.PropCrimeScore +
                        Le.MortalityScore + Le.EvtScore + Le.InjScore + Le.FatScore;
-SELF := Le
+ SELF := Le;
 END;                    
 
 ParadiseSummary := PROJECT(MergeAll,CompTotal(LEFT));

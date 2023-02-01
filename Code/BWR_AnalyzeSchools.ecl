@@ -25,7 +25,7 @@ ByState := TABLE(CleanSchSub,{State,
                               STCnt      := COUNT(GROUP),
                               PubCnt     := COUNT(GROUP,Public=TRUE), 
                               PrvCnt     := COUNT(GROUP,Public=FALSE),
-                              DECIMAL5_2 PrPubRat   := 0,
+                   DECIMAL5_2 PrPubRat   := 0,
                               AveSTRatio := ROUND(AVE(GROUP,STRatio),2)}
                  ,State);
 

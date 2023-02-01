@@ -43,8 +43,6 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-// EXPORT File  := DATASET('~uga::main::public_schoolsUS',layout,CSV(HEADING(1)));
-EXPORT File  := DATASET('~uga::main::public_schoolsUSUpd',layout,CSV(HEADING(1)));
-
+EXPORT File  := DATASET('~uga::main::public_schoolsUS',layout,CSV(HEADING(1)));
 
 END;

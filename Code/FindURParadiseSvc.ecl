@@ -1,7 +1,6 @@
 ﻿IMPORT $;
 ParaIDX := $.File_Composite.IDX;
-ParaDS  := $.File_Composite.File;
-ParaLay := $.File_Composite.Layout;
+
 EXPORT FindURParadiseSvc() := FUNCTION
 Parms := STORED($.iParadise);
 
