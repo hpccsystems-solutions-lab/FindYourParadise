@@ -39,6 +39,6 @@ EXPORT Layout := RECORD
     STRING13  shelter_id;
 END;
 
-EXPORT File := DATASET('~UGA::Main::OUT::AllUSSchools',Layout,THOR);
+EXPORT File := DATASET('~FYP::Main::OUT::AllUSSchools',Layout,THOR);
 
 END;
