@@ -1,6 +1,8 @@
-# FindYourParadise
+# Find Your Paradise
 
 An HPCC Systems Hackathon Challenge!
+
+Note: The content contained in this challenge is for training purposes only, and any relation to any existing product is purely coincidental.
 
 # Challenge Overview
 
