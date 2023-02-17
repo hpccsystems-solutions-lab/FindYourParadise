@@ -50,8 +50,8 @@ AddPublic  := PROJECT(Public,TRANSFORM(CombRec,
                                        SELF := LEFT));
 AddPrivate := PROJECT(Private,TRANSFORM(CombRec,SELF.RecID := 0,SELF.DISTRICTID := 'PRIVATE',SELF.LEVEL := LEFT.LEVEL_,SELF.Public := FALSE,SELF := LEFT));
 SeqAll     := PROJECT(AddPublic+AddPrivate,TRANSFORM(CombRec,SELF.RecID := COUNTER,SELF := LEFT));
-out        := OUTPUT(SeqAll,,'~UGA::Main::OUT::AllUSSchools',OVERWRITE); //default to FLAT/THOR
-temp       := DATASET('~UGA::Main::OUT::AllUSSchools',combRec,THOR);
+out        := OUTPUT(SeqAll,,'~FYP::Main::OUT::AllUSSchools',OVERWRITE); //default to FLAT/THOR
+temp       := DATASET('~FYP::Main::OUT::AllUSSchools',combRec,THOR);
 
 bestrecord := STD.DataPatterns.BestRecordStructure(temp);
 BestRecOut := OUTPUT(bestrecord,ALL);

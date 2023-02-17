@@ -62,5 +62,5 @@ END;
 
 ParadiseSummary := PROJECT(MergeAll,CompTotal(LEFT));
 
-OUTPUT(ParadiseSummary,,'~UGA::Main::Hacks::ParadiseScores',NAMED('Final_Output'),OVERWRITE);
+OUTPUT(ParadiseSummary,,'~FYP::Main::Hacks::ParadiseScores',NAMED('Final_Output'),OVERWRITE);
  

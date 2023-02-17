@@ -5,7 +5,7 @@
   decimal5_2 mincum;
 END; 
 
-Health_DS := DATASET('~UGA::Main::Hacks::Mortality',HealthRec,FLAT);
+Health_DS := DATASET('~FYP::Main::Hacks::Mortality',HealthRec,FLAT);
 
 
  //BuildScores (higher score, better rating)
@@ -25,4 +25,4 @@ AddLifeScore := ITERATE(SORT(TempTbl,-sumcum),
                                   SELF.MortalityScore := IF(LEFT.sumcum=RIGHT.sumcum,LEFT.MortalityScore,LEFT.MortalityScore+1),
                                   SELF := RIGHT));
 
-OUTPUT(AddLifeScore,,'~UGA::Main::Hacks::LifeScore',NAMED('TopLife'),OVERWRITE);
+OUTPUT(AddLifeScore,,'~FYP::Main::Hacks::LifeScore',NAMED('TopLife'),OVERWRITE);

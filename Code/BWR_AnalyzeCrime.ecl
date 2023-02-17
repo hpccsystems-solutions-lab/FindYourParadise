@@ -63,7 +63,7 @@ END;
 
 BuildRatios := PROJECT(AveCrimeTBL,CalcRatios(LEFT));
 // OUTPUT(PROJECT(AveCrimeTBL,CalcRatios(LEFT)));
-OUTPUT(BuildRatios,,'~UGA::Main::Hacks::CrimeRates',NAMED('CrimeRatiosByPopulation'),OVERWRITE);
+OUTPUT(BuildRatios,,'~FYP::Main::Hacks::CrimeRates',NAMED('CrimeRatiosByPopulation'),OVERWRITE);
 
 
 

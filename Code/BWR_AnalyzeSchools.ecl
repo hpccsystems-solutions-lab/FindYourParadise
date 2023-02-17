@@ -33,7 +33,7 @@ Clean_ByState := PROJECT(ByState,TRANSFORM(RECORDOF(ByState),
                                            SELF.PrPubRat := (LEFT.PrvCnt/LEFT.PubCnt) * 100,
                                            SELF := LEFT));
 // SORT(Clean_ByState,AveStRatio);
-OUTPUT(Clean_ByState,,'~UGA::Main::Hacks::EducationSummary',NAMED('CountsRatios'),OVERWRITE);
+OUTPUT(Clean_ByState,,'~FYP::Main::Hacks::EducationSummary',NAMED('CountsRatios'),OVERWRITE);
 
 
 

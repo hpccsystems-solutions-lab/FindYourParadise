@@ -42,4 +42,4 @@ DECIMAL5_2 MinCum := ROUND(AVE(GROUP,JoinState2.Change_in_Mortality_Rate__1980_2
 END;
 
 LifeSum := SORT(TABLE(JoinState2,CTRec,State),SumCum);
-OUTPUT(LifeSum,,'~UGA::Main::Hacks::Mortality',NAMED('MortalityAverages'),OVERWRITE);
+OUTPUT(LifeSum,,'~FYP::Main::Hacks::Mortality',NAMED('MortalityAverages'),OVERWRITE);

@@ -40,7 +40,7 @@ EXPORT Layout := RECORD
     REAL4 Change_in_Mortality_Rate__1980_2014__Max_;
 END;
 
-EXPORT File := DATASET('~fyp::main::mortalitybyuscounty',layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~fyp::main::input::mortalitybyuscounty',layout,CSV(HEADING(1)));
 
 // From: https://ghdx.healthdata.org/record/ihme-data/united-states-life-expectancy-by-state-white-black-hispanic-race-ethnicity-1990-2019
 // Mortality By State
@@ -68,6 +68,6 @@ EXPORT Layout2 := RECORD  //Best Record generated
     STRING11 lower;
 END;
 
-EXPORT File2 := DATASET('~fyp::main::mortalitybyusstate2000to2019',Layout2,CSV(HEADING(1)));
+EXPORT File2 := DATASET('~fyp::main::input::mortalitybygenderandrace',Layout2,CSV(HEADING(1)));
 
 END;

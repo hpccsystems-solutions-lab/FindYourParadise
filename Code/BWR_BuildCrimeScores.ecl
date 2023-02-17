@@ -13,7 +13,7 @@
  DECIMAL5_4   PropCompRat;    //Average of all Property Crimes  
 END;
 
-Crime_DS := DATASET('~UGA::Main::Hacks::CrimeRates',CrimeRec,FLAT);  //Created in BWR_Analyze Crime
+Crime_DS := DATASET('~FYP::Main::Hacks::CrimeRates',CrimeRec,FLAT);  //Created in BWR_Analyze Crime
 
 //Build Scores (higher score, better rating)
 RankTbl := RECORD
@@ -31,4 +31,4 @@ AddViolentScore := ITERATE(SORT(TempTbl,-violentcomprat),TRANSFORM(RankTbl,
                                                                    SELF := RIGHT));
 AddPropScore    := ITERATE(SORT(AddViolentScore,-propcomprat),TRANSFORM(RankTbl,SELF.PropCrimeScore := IF(LEFT.propcomprat=RIGHT.propcomprat,LEFT.PropCrimeScore,LEFT.PropCrimeScore+1),SELF := RIGHT));
 
-OUTPUT(AddPropScore,,'~UGA::Main::Hacks::CrimeScores',NAMED('TopCrime'),OVERWRITE);
+OUTPUT(AddPropScore,,'~FYP::Main::Hacks::CrimeScores',NAMED('TopCrime'),OVERWRITE);
