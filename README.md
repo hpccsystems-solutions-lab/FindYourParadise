@@ -73,7 +73,7 @@ Judges will consider followings during final presentation:
 
 - Problem that was chosen (What categories and datasets were selected)
 - How you approached the solution
-- Display results (ROXIE or Visualization)
+- Display results (ROXIE or Visualization)- please reference pertinent ECL workunits with submission 
 - Drawing conclusion (Where is your Paradise?)
 - Demo of work via a PowerPoint presentation or live demo
 
