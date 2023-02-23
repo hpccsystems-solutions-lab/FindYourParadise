@@ -144,51 +144,6 @@ EXPORT States :=
  EXPORT StDCT   := DICTIONARY(States,{state => name});
  EXPORT MapST2Name(STRING state) := StDCT[state].name;
 END;
-//Import:ecl:ParadiseHackathon.File_AllSchools
-EXPORT File_AllSchools := MODULE
-//Best layout from BWR_BuildSchools
-EXPORT Layout := RECORD
-    UNSIGNED8 RecID;
-    BOOLEAN   Public;
-    REAL8     x;
-    REAL8     y;
-    STRING6   fid;
-    UNSIGNED4 districtid;
-    UNSIGNED3 objectid;
-    STRING12  ncesid;
-    STRING60  name;
-    STRING56  address;
-    STRING26  city;
-    STRING2   state;
-    STRING5   zip;
-    STRING13  zip4;
-    STRING14  telephone;
-    UNSIGNED1 type;
-    UNSIGNED1 status;
-    INTEGER3  population;
-    STRING21  county;
-    STRING5   countyfips;
-    STRING3   country;
-    REAL8     latitude;
-    REAL8     longitude;
-    UNSIGNED3 naics_code;
-    STRING32  naics_desc;
-    STRING79  source;
-    STRING19  sourcedate;
-    STRING13  val_method;
-    STRING19  val_date;
-    STRING80  website;
-    STRING15  level;
-    INTEGER3  enrollment;
-    STRING2   start_grad;
-    STRING2   end_grade;
-    INTEGER2  ft_teacher;
-    STRING13  shelter_id;
-END;
-
-EXPORT File := DATASET('~UGA::Main::OUT::AllUSSchools',Layout,THOR);
-
-END;
 //Import:ecl:ParadiseHackathon.File_Crimes
 EXPORT File_Crimes := MODULE
 /* This dataset contains estimated data at the state and national level and was derived from the Summary Reporting System (SRS). 
@@ -214,7 +169,7 @@ EXPORT File_Crimes := MODULE
   STRING577 caveats;
  END;
 
-EXPORT File := DATASET('~uga::main::estimated_crimes_1979_2020',Layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~fyp::main::input::estimated_crimes_1979_2020',Layout,CSV(HEADING(1)));
 
 
 /* This optional data set contains statistics, in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. Also given is the percent of the population living in urban areas.
@@ -237,7 +192,7 @@ https://www.kaggle.com/datasets/mathchi/violent-crime-rates-by-us-state
     STRING UrbanPop;
     STRING Rape;
  END;
- EXPORT File2 := DATASET('~uga::main::us_violent_crime_summary_by_state',layout2,CSV(HEADING(1)));
+ EXPORT File2 := DATASET('~fyp::main::input::us_violent_crime_summary',layout2,CSV(HEADING(1)));
 
 END;
 //Import:ecl:ParadiseHackathon.File_Mortality
@@ -283,7 +238,7 @@ EXPORT Layout := RECORD
     REAL4 Change_in_Mortality_Rate__1980_2014__Max_;
 END;
 
-EXPORT File := DATASET('~uga::main::mortalitybyuscounty',layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~fyp::main::input::mortalitybyuscounty',layout,CSV(HEADING(1)));
 
 // From: https://ghdx.healthdata.org/record/ihme-data/united-states-life-expectancy-by-state-white-black-hispanic-race-ethnicity-1990-2019
 // Mortality By State
@@ -311,7 +266,7 @@ EXPORT Layout2 := RECORD  //Best Record generated
     STRING11 lower;
 END;
 
-EXPORT File2 := DATASET('~uga::main::mortalitybyusstate2000to2019',Layout2,CSV(HEADING(1)));
+EXPORT File2 := DATASET('~fyp::main::input::mortalitybygenderandrace',Layout2,CSV(HEADING(1)));
 
 END;
 //Import:ecl:ParadiseHackathon.File_PrivateSchools
@@ -356,8 +311,7 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-// EXPORT File := DATASET('~uga::main::private_schoolsUS',layout,CSV(HEADING(1)));
-EXPORT File := DATASET('~uga::main::private_schoolsUSUpd',layout,CSV(HEADING(1)));
+EXPORT File := DATASET('~fyp::main::input::private_schools',layout,CSV(HEADING(1)));
 
 END;
 //Import:ecl:ParadiseHackathon.File_PublicSchools
@@ -406,9 +360,7 @@ EXPORT Layout := RECORD
     STRING SHELTER_ID;
 END;
 
-// EXPORT File  := DATASET('~uga::main::public_schoolsUS',layout,CSV(HEADING(1)));
-EXPORT File  := DATASET('~uga::main::public_schoolsUSUpd',layout,CSV(HEADING(1)));
-
+EXPORT File  := DATASET('~fyp::main::input::public_schools',layout,CSV(HEADING(1)));
 
 END;
 //Import:ecl:ParadiseHackathon.File_StateFIPS
@@ -421,7 +373,7 @@ EXPORT File_StateFIPS := MODULE
     STRING2    Class;
 END;
 
- EXPORT File := DATASET('~uga::main::statefips',Layout,CSV(Heading(1)));
+ EXPORT File := DATASET('~fyp::main::input::statefips',Layout,CSV(Heading(1)));
 END;
 
 //Import:ecl:ParadiseHackathon.File_Weather
@@ -490,6 +442,6 @@ EXPORT Layout := RECORD //RECORD Optimized using BestRecord function (See BWR_An
     STRING8942  event_narrative;
     STRING3   data_source;
 END;
-
-EXPORT File := DATASET('~UGA::noaa::SF::StormEvents',layout,CSV(HEADING(1)));
+//Add sub files NOAA::
+EXPORT File := DATASET('~FYP::main::SF::StormEvents',layout,CSV(HEADING(1)));
 END;
