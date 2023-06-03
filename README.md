@@ -41,7 +41,11 @@ Download QuickStart.mod located in this repository's root folder. This file has 
 The import process will be discussed at the Workshops, but in both IDEs simply open the MOD file and follow the prompts. CTRL+O in the ECL IDE, and the F1 key in VS-Code will pop up the command dialog, and look for the "ECL: Import 'mod' file" command. 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://training.us-hpccsystems-dev.azure.lnrsg.io:8010/)
+=======
+If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://3.96.252.215:8010)
+>>>>>>> 5e2e34e6806174ef826f81acd52df4396d7ed5ab
 =======
 If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://3.96.252.215:8010)
 >>>>>>> 5e2e34e6806174ef826f81acd52df4396d7ed5ab
