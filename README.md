@@ -40,7 +40,11 @@ PDFs in the Docs folder of this repository can be found to guide you through the
 Download QuickStart.mod located in this repository's root folder. This file has the initial code you need for this challenge. 
 The import process will be discussed at the Workshops, but in both IDEs simply open the MOD file and follow the prompts. CTRL+O in the ECL IDE, and the F1 key in VS-Code will pop up the command dialog, and look for the "ECL: Import 'mod' file" command. 
 
-If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://54.177.201.47:8010)
+<<<<<<< HEAD
+If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://training.us-hpccsystems-dev.azure.lnrsg.io:8010/)
+=======
+If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://3.96.252.215:8010)
+>>>>>>> 5e2e34e6806174ef826f81acd52df4396d7ed5ab
 
 **Note: This cluster will only be active during the event!** After the event, you can create your own localized container cluster, or visit our public "Play" Cluster: (https://play.hpccsystems.com:18010) 
 
@@ -55,15 +59,15 @@ https://hpccsystems-solutions-lab.github.io
 https://www.youtube.com/watch?time_continue=192&v=Lk78BCCtM-0
 
 - ECL documentation
-http://cdn.hpccsystems.com/releases/CE-Candidate-8.10.12/docs/EN_US/ECLLanguageReference_EN_US-8.10.12-1.pdf
+http://cdn.hpccsystems.com/releases/CE-Candidate-9.0.10/docs/EN_US/ECLLanguageReference_EN_US-9.0.10-1.pdf
 
 - Visualization document
-https://cdn.hpccsystems.com/releases/CE-Candidate-8.10.12/docs/EN_US/VisualizingECL_EN_US-8.10.12-1.pdf
+https://cdn.hpccsystems.com/releases/CE-Candidate-9.0.10/docs/EN_US/VisualizingECL_EN_US-9.0.10-1.pdf
 
-- Standard Library
-https://cdn.hpccsystems.com/releases/CE-Candidate-8.10.12/docs/EN_US/ECLStandardLibraryReference_EN_US-8.10.12-1.pdf
+- Standard Library
+https://cdn.hpccsystems.com/releases/CE-Candidate-9.0.10/docs/EN_US/ECLStandardLibraryReference_EN_US-9.0.10-1.pdf
 
-- Machine Learning
+- Machine Learning
 https://hpccsystems.com/download/free-modules/machine-learning-library
 
 
