@@ -43,12 +43,6 @@ The import process will be discussed at the Workshops, but in both IDEs simply o
 <<<<<<< HEAD
 <<<<<<< HEAD
 If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://training.us-hpccsystems-dev.azure.lnrsg.io:8010/)
-=======
-If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://3.96.252.215:8010)
->>>>>>> 5e2e34e6806174ef826f81acd52df4396d7ed5ab
-=======
-If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://3.96.252.215:8010)
->>>>>>> 5e2e34e6806174ef826f81acd52df4396d7ed5ab
 
 **Note: This cluster will only be active during the event!** After the event, you can create your own localized container cluster, or visit our public "Play" Cluster: (https://play.hpccsystems.com:18010) 
 
