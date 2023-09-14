@@ -6,7 +6,7 @@ EXPORT Layout := RECORD
     REAL8     x;
     REAL8     y;
     STRING6   fid;
-    UNSIGNED4 districtid;
+    STRING7   districtid;
     UNSIGNED3 objectid;
     STRING12  ncesid;
     STRING60  name;
