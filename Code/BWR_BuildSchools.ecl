@@ -1,4 +1,5 @@
 ﻿IMPORT $,STD;
+//Run this first when building Education Scores - Combine Public and Private
 //Combine Public and Private into an All Schools Dataset
 Public  := $.File_PublicSchools.File;
 Private := $.File_PrivateSchools.File;
