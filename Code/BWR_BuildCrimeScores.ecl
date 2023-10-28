@@ -15,7 +15,7 @@ END;
 
 Crime_DS := DATASET('~FYP::Main::Hacks::CrimeRates',CrimeRec,FLAT);  //Created in BWR_Analyze Crime
 
-//Build Scores (higher score, better rating)
+//Build Scores (HIGHER SCORE, BETTER RATING)
 RankTbl := RECORD
  Crime_DS.State;
  Crime_DS.violentcomprat;
@@ -26,9 +26,10 @@ END;
 
 TempTbl := TABLE(Crime_DS,RankTbl);
 
-AddViolentScore := ITERATE(SORT(TempTbl,-violentcomprat),TRANSFORM(RankTbl,
-                                                                   SELF.ViolentScore := IF(LEFT.violentcomprat=RIGHT.violentcomprat,LEFT.ViolentScore,LEFT.ViolentScore+1),
-                                                                   SELF := RIGHT));
+AddViolentScore := ITERATE(SORT(TempTbl,-violentcomprat),
+                           TRANSFORM(RankTbl,
+                           SELF.ViolentScore := IF(LEFT.violentcomprat=RIGHT.violentcomprat,LEFT.ViolentScore,LEFT.ViolentScore+1),
+                           SELF := RIGHT));
 AddPropScore    := ITERATE(SORT(AddViolentScore,-propcomprat),TRANSFORM(RankTbl,SELF.PropCrimeScore := IF(LEFT.propcomprat=RIGHT.propcomprat,LEFT.PropCrimeScore,LEFT.PropCrimeScore+1),SELF := RIGHT));
 
 OUTPUT(AddPropScore,,'~FYP::Main::Hacks::CrimeScores',NAMED('TopCrime'),OVERWRITE);
