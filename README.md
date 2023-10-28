@@ -48,20 +48,20 @@ For a quick start on ECL syntax, please visit the [Learn ECL](https://hpccsystem
 
 ## Additional Resources
 
-- Learn ECL Academy
+- Learn ECL Portal
 https://hpccsystems-solutions-lab.github.io
 
 - ECL training containing six short videos
 https://www.youtube.com/watch?time_continue=192&v=Lk78BCCtM-0
 
 - ECL documentation
-http://cdn.hpccsystems.com/releases/CE-Candidate-9.0.10/docs/EN_US/ECLLanguageReference_EN_US-9.0.10-1.pdf
+http://cdn.hpccsystems.com/releases/CE-Candidate-9.4.4/docs/EN_US/ECLLanguageReference_EN_US-9.4.4-1.pdf
 
 - Visualization document
-https://cdn.hpccsystems.com/releases/CE-Candidate-9.0.10/docs/EN_US/VisualizingECL_EN_US-9.0.10-1.pdf
+https://cdn.hpccsystems.com/releases/CE-Candidate-9.4.4/docs/EN_US/VisualizingECL_EN_US-9.4.4-1.pdf
 
 - Standard Library
-https://cdn.hpccsystems.com/releases/CE-Candidate-9.0.10/docs/EN_US/ECLStandardLibraryReference_EN_US-9.0.10-1.pdf
+https://cdn.hpccsystems.com/releases/CE-Candidate-9.4.4/docs/EN_US/ECLStandardLibraryReference_EN_US-9.4.4-1.pdf
 
 - Machine Learning
 https://hpccsystems.com/download/free-modules/machine-learning-library
