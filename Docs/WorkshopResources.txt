@@ -1,0 +1,49 @@
+Important Links for Workshop:
+
+The HPCC Cluster
+ECL Watch:
+http://training.us-hpccsystems-dev.azure.lnrsg.io:8010/ 
+
+The Repo:
+
+https://github.com/hpccsystems-solutions-lab/FindYourParadise 
+
+Public Data Sources
+
+Public Schools:
+This dataset was downloaded from: 
+https://hifld-geoplatform.opendata.arcgis.com/datasets/87376bdb0cb3490cbda39935626f6604_0
+Provided by the Homeland Infrastructure Foundation-Level Data (HIFLD) without a license and for Public Use.
+More information about the data can be found here:
+https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::public-schools/about
+Private Schools:
+This dataset, taken from the US Department of Homeland Security, contains information on all private schools with attributes regarding their geographical distribution.
+License: Public Domain
+https://hifld-geoplatform.opendata.arcgis.com/datasets/0dfe37d2a68545a699b999804354dacf_0
+
+Estimated Crimes 1979-2020:
+This dataset was downloaded from the Crime Data Explorer: 
+https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads#nibrs-downloads
+It contains estimated data at the state and national level and was derived from the Summary Reporting System (SRS). 
+This dataset reflects the estimates the FBI has traditionally included in its annual publications. 
+See the FBI's estimated crime totals for the nation and all 50 states, 1979 to 2020.
+
+Mortality By County (1980-2014):
+Originally from the Institute for Health Metrics and Evaluation
+https://www.kaggle.com/datasets/IHME/us-countylevel-mortality
+Grouped by County FIPS, Category – 5-year increments or all years.
+
+Mortality By State,Race, and Gender (1990-2019):
+Source: Institute for Health Metrics and Evaluation
+https://ghdx.healthdata.org/record/ihme-data/united-states-life-expectancy-by-state-white-black-hispanic-race-ethnicity-1990-2019
+Estimates were produced for mortality rates, life expectancy, and population at the state level in the United States, and by racial/ethnic group, for each year between 1990-2019.    These estimates were produced using population and deaths data from the National Center for Health Statistics.
+
+The Storm Events Database contains the records used to create the official NOAA Storm Data publication, documenting:   
+The occurrence of storms and other significant weather phenomena having sufficient intensity to cause loss of life, injuries, 
+significant property damage, and/or disruption to commerce;
+Rare, unusual, weather phenomena that generate media attention, such as snow flurries in South Florida or the San Diego coastal area; and
+Other significant meteorological events, such as record maximum or minimum temperatures or precipitation that occur in connection with another event.
+The database currently contains data from January 1950 to October 2022, as entered by NOAA's National Weather Service (NWS).
+https://www.ncdc.noaa.gov/stormevents/
+
+
