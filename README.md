@@ -1,8 +1,8 @@
 # Find Your Paradise
 
-An HPCC Systems Hackathon Challenge!
+An HPCC Systems ECL Code Challenge and Workshop!
 
-Note: The content contained in this challenge is for training purposes only, and any relation to any existing product is purely coincidental.
+Note: The content contained in this challenge is for training purposes only, and any relation to any existing product(s) is purely coincidental.
 
 # Challenge Overview
 
@@ -48,22 +48,19 @@ For a quick start on ECL syntax, please visit the [Learn ECL](https://hpccsystem
 
 ## Additional Resources
 
-- Learn ECL Portal
-https://hpccsystems-solutions-lab.github.io
-
-- ECL training containing six short videos
+- ECL training containing six short videos:
 https://www.youtube.com/watch?time_continue=192&v=Lk78BCCtM-0
 
-- ECL documentation
+- ECL documentation:
 http://cdn.hpccsystems.com/releases/CE-Candidate-9.4.4/docs/EN_US/ECLLanguageReference_EN_US-9.4.4-1.pdf
 
-- Visualization document
+- Visualization document:
 https://cdn.hpccsystems.com/releases/CE-Candidate-9.4.4/docs/EN_US/VisualizingECL_EN_US-9.4.4-1.pdf
 
-- Standard Library
+- Standard Library:
 https://cdn.hpccsystems.com/releases/CE-Candidate-9.4.4/docs/EN_US/ECLStandardLibraryReference_EN_US-9.4.4-1.pdf
 
-- Machine Learning
+- Machine Learning:
 https://hpccsystems.com/download/free-modules/machine-learning-library
 
 
